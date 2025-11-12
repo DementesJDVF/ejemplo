@@ -1,0 +1,49 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin-top: 100px;
+    background-color: #0a0a0a; /* Fondo oscuro */
+    color: #ffffff;
+}
+
+h1 {
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff,
+                0 0 20px #00ffff,
+                0 0 30px #00ffff,
+                0 0 40px #00cccc;
+}
+
+#contador {
+    font-size: 2em;
+    margin: 20px 0;
+    color: #00ffea;
+    text-shadow: 0 0 10px #00ffea,
+                0 0 20px #00ffea,
+                0 0 30px #00ffea,
+                0 0 40px #00d4d4;
+}
+
+button {
+    background-color: transparent;
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    text-shadow: 0 0 5px #00ffff,
+                0 0 10px #00ffff;
+    box-shadow: 0 0 10px #00ffff,
+                0 0 20px #00cccc,
+                0 0 30px #00aaff;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #00ffff;
+    color: #0a0a0a;
+    box-shadow: 0 0 20px #00ffff,
+                0 0 40px #00cccc,
+                0 0 60px #00aaff;
+}
