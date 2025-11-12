@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="/calculadora/estilos.css">
+</head>
+<body>
+    <div class="calculadora">
+        <form id="calculadora" onsubmit="return false;">
+        <input type="text" id="pantalla" readonly title="Pantalla" placeholder="Calculadora" />
+
+        <div class="botones">
+            <!-- Fila 1 -->
+            <button type="button" onclick="limpiar_pantalla()" class="borrar">C</button>
+            <button type="button" onclick="borrar_ultimo()" class="operador">⌫</button>
+            <button type="button" onclick="agregar('%')" class="operador">%</button>
+            <button type="button" onclick="agregar('/')" class="operador">÷</button>
+            
+            <!-- Fila 2 -->
+            <button type="button" onclick="agregar('7')">7</button>
+            <button type="button" onclick="agregar('8')">8</button>
+            <button type="button" onclick="agregar('9')">9</button>
+            <button type="button" onclick="agregar('*')" class="operador">×</button>
+            
+            <!-- Fila 3 -->
+            <button type="button" onclick="agregar('4')">4</button>
+            <button type="button" onclick="agregar('5')">5</button>
+            <button type="button" onclick="agregar('6')">6</button>
+            <button type="button" onclick="agregar('-')" class="operador">−</button>
+            <!-- Fila 4 -->
+            <button type="button" onclick="agregar('1')">1</button>
+            <button type="button" onclick="agregar('2')">2</button>
+            <button type="button" onclick="agregar('3')">3</button>
+            <button type="button" onclick="agregar('+')" class="operador">+</button>
+            <!-- Fila 5 -->
+            <button type="button" onclick="agregar('0')">0</button>
+            <button type="button" onclick="agregar('.')">.</button>
+            <!-- boton igual span2 -->
+            <button type="button" onclick="calcular()" class="igual">=</button>
+        </div>
+        </form>
+    </div>
+
+    <script src="/calculadora/funciones.js"></script>
+</body>
+</html>
+
