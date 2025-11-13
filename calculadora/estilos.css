@@ -1,6 +1,3 @@
-/* ====== Neon Rojo sobre Negro (versión animada) ====== */
-
-
 /* ====== Reset & Layout ====== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { height: 100%; }
@@ -8,7 +5,7 @@ html, body { height: 100%; }
 body{
     font-family: 'Inter', Arial, sans-serif;
     background: radial-gradient(circle at center, #070707 0%, #000 100%);
-    color: var(--text);
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -82,7 +79,7 @@ body{
     width: 100%;
     height: 70px;
     background: linear-gradient(180deg, rgba(14,14,14,0.9), rgba(8,8,8,0.8));
-    color: var(--text);
+    color: white;
     border: 1px solid rgba(255,0,51,0.08);
     border-radius: 14px;
     padding: 14px 18px;
@@ -112,9 +109,8 @@ button{
     font-weight: 600;
     padding: 0 8px;
     background: linear-gradient(180deg, #151515, #0d0d0d);
-    color: var(--text);
+    color: white;
     box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-    transition: var(--transition);
     animation: buttonPulse 4s ease-in-out infinite;
 }
 
@@ -127,20 +123,19 @@ button{
 /* Hover general */
 button:hover{
     transform: translateY(-3px);
-    box-shadow: var(--glow-strong);
 }
 
 /* ====== Botones numéricos ====== */
 .botones button:not(.operador):not(.borrar):not(.igual){
     background: linear-gradient(180deg, #181818, #0f0f0f);
-    color: var(--text);
+    color: white;
     border: 1px solid rgba(255,255,255,0.03);
 }
 
 /* ====== Operadores ====== */
 .operador{
     background: linear-gradient(180deg, rgba(255,0,51,0.08), rgba(255,0,51,0.05));
-    color: var(--red-soft);
+    color: red;
     border: 1px solid rgba(255,0,51,0.15);
     box-shadow: 0 4px 16px rgba(255,0,51,0.08);
     animation-delay: 0.5s;
@@ -167,7 +162,6 @@ button:hover{
 /* ====== Igual ====== */
 .igual{
     grid-column: span 2;
-    background: linear-gradient(180deg, var(--red), var(--red-dim));
     color: #ffffff;
     font-weight: 700;
     border: 1px solid rgba(255,255,255,0.04);
