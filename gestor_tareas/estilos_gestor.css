@@ -1,0 +1,176 @@
+/* ====== Reset ====== */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+/* ====== Fondo general ====== */
+body{
+    background: linear-gradient(135deg, #0a0a0a, #1a000a, #000);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    color: #fff;
+}
+
+/* ====== Título ====== */
+h1{
+    margin-bottom: 20px;
+    font-size: 2.3rem;
+    color: #ffb0c0;
+    text-shadow: 0 0 12px rgba(255,0,80,0.7);
+    animation: glow 3s ease-in-out infinite alternate;
+}
+
+/* ====== Contenedor Principal ====== */
+.contenedor{
+    width: 420px;
+    padding: 25px;
+    background: rgba(15, 0, 10, 0.7);
+    border-radius: 10px;
+    border: 2px solid rgba(255,0,80,0.25);
+    box-shadow: 
+        0 0 20px rgba(255,0,80,0.25),
+        inset 0 0 25px rgba(255,0,80,0.15);
+    animation: fadeIn 1s ease-out;
+    display: flex;
+}
+
+.contenedor h2{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255,0,80,0.4);
+}
+
+/* ====== Input ====== */
+#agregar_tarea{
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,0,50,0.3);
+    background: rgba(20,20,20,0.9);
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: .25s;
+}
+
+#agregar_tarea::placeholder{
+    color: #ffb0c0;
+    opacity: 0.6;
+}
+
+#agregar_tarea:focus{
+    border-color: #ff0055;
+    box-shadow: 0 0 12px rgba(255,0,90,0.5);
+}
+
+/* ====== Botón Agregar ====== */
+#agregar_boton{
+    margin-left: 5px;
+    width: 20%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #ff004c;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .25s;
+    box-shadow: 0 0 15px rgba(255,0,90,0.35);
+}
+
+#agregar_boton:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255,0,90,0.7);
+}
+
+/* ====== Lista de Tareas ====== */
+#lista_tareas{
+    list-style: none;
+    margin-top: 25px;
+}
+
+#lista_tareas li{
+    background: rgba(25,0,15,0.6);
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 4px solid #ff0055;
+    animation: slideIn .35s ease-out;
+    box-shadow: 0 0 10px rgba(255,0,60,0.25);
+    transition: .25s;
+}
+
+#lista_tareas li:hover{
+    transform: translateX(4px);
+    box-shadow: 0 0 20px rgba(255,0,80,0.5);
+}
+
+/* Texto de tarea */
+#lista_tareas li span{
+    flex: 1;
+    font-size: 1.12rem;
+    color: #ffd9e4;
+}
+
+/* ====== Botones dentro de cada tarea ====== */
+#lista_tareas button{
+    padding: 8px 12px;
+    margin-left: 8px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: .25s;
+}
+
+/* Botón eliminar */
+.eliminar{
+    background: #ff0033;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255,0,60,0.4);
+}
+.eliminar:hover{
+    background: #ff335e;
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(255,0,60,0.7);
+}
+
+/* Botón actualizar */
+.actualizar{
+    background: #222;
+    color: #ff99b4;
+    border: 1px solid #ff99b4;
+    box-shadow: 0 0 10px rgba(255,150,170,0.3);
+}
+.actualizar:hover{
+    background: #ff99b4;
+    color: #000;
+    transform: scale(1.08);
+    box-shadow: 0 0 18px rgba(255,150,170,0.8);
+}
+
+/* ====== Animaciones ====== */
+@keyframes fadeIn{
+    from{ opacity: 0; transform: translateY(20px); }
+    to{ opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn{
+    from{ opacity: 0; transform: translateX(-20px); }
+    to{ opacity: 1; transform: translateX(0); }
+}
+
+@keyframes glow{
+    from{ text-shadow: 0 0 8px rgba(255,0,80,0.4); }
+    to{ text-shadow: 0 0 20px rgba(255,0,80,1); }
+}
