@@ -22,7 +22,7 @@ boton_agregar.addEventListener("click", () => {
     boton_actualizar.className = "actualizar";
     boton_actualizar.onclick = function () {
         document.getElementById("agregar_tarea").value = linea.textContent;
-        li.remove();
+        lista.remove();
     };
 
     lista.appendChild(linea);
@@ -33,5 +33,3 @@ boton_agregar.addEventListener("click", () => {
 
     agregar.value = "";
 });
-
-
