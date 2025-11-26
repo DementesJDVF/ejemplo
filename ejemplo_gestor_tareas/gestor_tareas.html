@@ -7,16 +7,17 @@
     <link rel="stylesheet" href="/ejemplo_gestor_tareas/estilos_gestor.css">
 </head>
 <body>
-    <div>
-        <h1>Gestor de Tareas</h1>
-    </div>
+    <h1>Gestor de Tareas Neón <span id="contador">(0 pendientes)</span></h1>
 
     <div class="contenedor">
-        <input type="text" id="pantalla" placeholder="Ingresar tarea nueva">
-        <button id="agregar" class="agregar">Agregar</button>
+        <label for="pantalla" class="sr-only">Nueva tarea</label>
+        <input type="text" id="pantalla" placeholder="Escribe una nueva tarea y presiona Enter" />
+        <button id="agregar">Agregar</button>
     </div>
-    <div>
-        <ul id="lista_tareas"></ul>
+
+    <ul class="lista-tareas" id="lista_tareas"></ul>
+    <div div id="mensaje-vacio">¡No tienes tareas! Agrega una para comenzar </div>
+
     </div>
     <script src="/ejemplo_gestor_tareas/todo.js"></script>
 </body>

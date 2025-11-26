@@ -1,157 +1,266 @@
-/* === Reset === */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
+  /* === Variables de diseño === */
+    :root {
+        --neon-red: #ff0022;
+        --neon-glow: #ff0033;
+        --neon-cyan: #00ffcc;
+        --bg-body: #0a0000;
+        --bg-card: #140000;
+        --bg-input: #1b0000;
+        --text-primary: #fff;
+        --text-secondary: #ffdddd;
+    }
 
-/* === Fondo === */
-body {
-    background: #0a0000;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px;
-}
+    /* === Reset y base === */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Arial, sans-serif;
+    }
 
-/* === Titulo === */
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #ff4d4d;
-    text-shadow: 0 0 12px #ff0000, 0 0 30px #ff0033;
-}
+    body {
+        background: var(--bg-body);
+        color: var(--text-primary);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        min-height: 100vh;
+        position: relative;
+    }
 
-/* === Contenedor principal neón rojo === */
-.contenedor {
-    background: #140000;
-    padding: 25px;
-    width: 50%;
-    border-radius: 12px;
-    margin-bottom: 25px;
+    /* Fondo sutil con brillos */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: 
+            radial-gradient(circle at 10% 20%, rgba(255,0,50,0.05) 0%, transparent 20%),
+            radial-gradient(circle at 90% 80%, rgba(255,0,30,0.07) 0%, transparent 25%);
+        z-index: -1;
+    }
 
-    border: 2px solid #ff0022;
-    box-shadow: 
-        0 0 10px #ff0022,
-        0 0 25px #ff0022,
-        inset 0 0 18px #ff0011;
-}
+    /* === Accesibilidad === */
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
 
-/* === Input === */
-#pantalla {
-    width: 70%;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    outline: none;
-    margin-right: 10px;
-    background: #1b0000;
-    color: #ffb3b3;
-    border: 1px solid #ff0033;
-    box-shadow: inset 0 0 8px #ff0022;
-    transition: 0.2s;
-}
+    /* === Título === */
+    h1 {
+        font-size: 2.3rem;
+        margin: 20px 0 10px;
+        color: #ff4d4d;
+        text-shadow: 
+            0 0 12px var(--neon-red),
+            0 0 30px var(--neon-glow);
+        text-align: center;
+        font-weight: bold;
+    }
 
-#pantalla:focus {
-    box-shadow: 0 0 12px #ff0022, 0 0 22px #ff0044;
-}
+    #contador {
+        font-size: 1rem;
+        color: #ff8888;
+        display: block;
+        margin-top: 6px;
+        font-weight: normal;
+    }
 
-/* === Botón agregar === */
-.agregar,
-#agregar {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+    /* === Contenedor de entrada === */
+    .contenedor {
+        background: var(--bg-card);
+        padding: 20px;
+        width: min(95%, 600px);
+        border-radius: 12px;
+        margin-bottom: 25px;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        border: 2px solid var(--neon-red);
+        box-shadow: 
+            0 0 10px var(--neon-red),
+            0 0 25px var(--neon-red),
+            inset 0 0 18px var(--neon-glow);
+    }
 
-    background: #ff1a1a;
-    color: #000;
-    font-weight: bold;
-    transition: 0.2s;
+    #pantalla {
+        flex: 1;
+        padding: 12px;
+        border: 1px solid var(--neon-glow);
+        border-radius: 8px;
+        outline: none;
+        background: var(--bg-input);
+        color: var(--text-secondary);
+        box-shadow: inset 0 0 8px rgba(255,0,34,0.6);
+        transition: all 0.25s ease;
+        font-size: 1rem;
+    }
 
-    box-shadow: 0 0 10px #ff1a1a;
-}
+    #pantalla:focus {
+        box-shadow: 
+            inset 0 0 8px var(--neon-red),
+            0 0 12px var(--neon-red),
+            0 0 22px var(--neon-glow);
+    }
 
-.agregar:hover,
-#agregar:hover {
-    transform: scale(1.06);
-    box-shadow: 
-        0 0 12px #ff0022, 
-        0 0 25px #ff0022,
-        0 0 45px #ff0033;
-}
+    #agregar {
+        padding: 10px 18px;
+        border: none;
+        border-radius: 8px;
+        background: #ff1a1a;
+        color: #000;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        box-shadow: 0 0 10px #ff1a1a;
+        font-size: 1rem;
+    }
 
-/* === Lista === */
-#lista_tareas {
-    list-style: none;
-    width: 350px;
-    padding: 0;
-    margin-top: 20px;
-}
+    #agregar:hover {
+        transform: scale(1.05);
+        box-shadow: 
+            0 0 15px var(--neon-red),
+            0 0 30px var(--neon-glow),
+            0 0 50px #ff0044;
+    }
 
-/* === Ítems === */
-#lista_tareas li {
-    background: #180000;
-    padding: 12px;
-    border-radius: 8px;
-    margin-bottom: 12px;
+    /* === Lista de tareas === */
+    .lista-tareas {
+        list-style: none;
+        width: min(95%, 550px);
+        padding: 0;
+        margin: 10px 0 20px;
+    }
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+        .tarea {
+        background: #180000;
+        padding: 14px;
+        border-radius: 10px;
+        margin-bottom: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-left: 4px solid var(--neon-red);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        transition: all 0.3s ease;
+    }
 
-    border-left: 4px solid #ff0022;
-    box-shadow: 0 0 10px #ff0011;
-}
+    .tarea.editando {
+        border-left-color: var(--neon-cyan);
+        background: #0d0015;
+        box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
+    }
 
-/* Texto de tareas */
-#lista_tareas li span {
-    font-size: 1rem;
-    color: #ffcccc;
-    cursor: pointer;
-}
+    .texto-tarea {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        cursor: pointer;
+        flex: 1;
+        word-break: break-word;
+        padding-right: 12px;
+        transition: all 0.2s ease;
+    }
 
-/* Tachar (si lo activas desde JS o checkbox) */
-.tachar {
-    text-decoration: line-through;
-    color: #ff6666;
-    opacity: 0.5;
-    text-transform: uppercase;
-}
+    .tachar {
+        text-decoration: line-through;
+        color: #ff7777 !important;
+        opacity: 0.7;
+    }
 
-/* === Botones eliminar / actualizar === */
-button.eliminar,
-button.actualizar {
-    padding: 6px 10px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    margin-left: 5px;
-    transition: 0.2s;
-}
+    /* Botones de acción */
+    .tarea button {
+        padding: 8px 10px;
+        margin-left: 8px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.85rem;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-/* Botón rojo eliminar */
-button.eliminar {
-    background: #ff1a1a;
-    color: #fff;
-    box-shadow: 0 0 10px #ff1a1a;
-}
-button.eliminar:hover {
-    box-shadow: 0 0 18px #ff1a1a, 0 0 35px #ff0033;
-}
+    button.eliminar {
+        background: #ff1a1a;
+        color: white;
+        width: 36px;
+        height: 36px;
+    }
 
-/* Botón actualizar (rojo suave) */
-button.actualizar {
-    background: #330000;
-    color: #ff6666;
-    border: 1px solid #ff4d4d;
-    box-shadow: 0 0 10px #ff0033;
-}
-button.actualizar:hover {
-    background: #ff4d4d;
-    color: #000;
-    box-shadow: 0 0 20px #ff0033, 0 0 40px #ff0011;
-}
+    button.eliminar:hover {
+        background: #ff0000;
+        box-shadow: 0 0 15px #ff3333;
+    }
+
+    button.actualizar {
+        background: #330000;
+        color: #ff7777;
+        border: 1px solid var(--neon-red);
+        width: 36px;
+        height: 36px;
+    }
+
+    button.actualizar:hover {
+        background: #ff4d4d;
+        color: #000;
+        box-shadow: 0 0 15px var(--neon-glow);
+    }
+
+    /* Input de edición */
+    .input-edicion {
+        flex: 1;
+        padding: 8px 12px;
+        border: 1px solid var(--neon-cyan);
+        border-radius: 8px;
+        background: #0d0015;
+        color: white;
+        outline: none;
+        box-shadow: inset 0 0 6px var(--neon-cyan);
+        font-size: 1.1rem;
+    }
+
+    /* Mensaje vacío */
+    #mensaje-vacio {
+        color: #ff5555;
+        text-align: center;
+        margin-top: 30px;
+        font-style: italic;
+        font-size: 1.1rem;
+        text-shadow: 0 0 8px rgba(255,0,50,0.5);
+    }
+
+    /* Animaciones */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .tarea {
+        animation: fadeInUp 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    @keyframes fadeOutRight {
+        to {
+            opacity: 0;
+            transform: translateX(80px);
+        }
+    }
+
+    .tarea.removiendo {
+        animation: fadeOutRight 0.4s forwards;
+    }
