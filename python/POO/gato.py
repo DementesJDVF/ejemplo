@@ -5,5 +5,11 @@ class Gato(Mascota):
         super().__init__(nombre, raza, edad)
         self.tipoPelo = tipoPelo
         
-    def maullar(self):
-        print("miauu miauuu")
+    def hacerSonido(self):
+        print("miauu miauuu, hace el gato", self.getNombre())
+        
+    def presentar (self):
+        print("Soy un gato de nombre: ", self.getNombre().upper(),
+            "\nSoy de raza:", self.getRaza().upper(), 
+            "\nTengo:", self.getEdad(), 
+            "años de edad\nMi pelo es:", self.tipoPelo)
